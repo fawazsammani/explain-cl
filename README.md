@@ -7,14 +7,14 @@ Gradio web-demo [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%9
 
 Please see `xai.ipynb`
 
-Pretrained Models can be downloaded from:
+Pretrained Models can be downloaded from the links below, and should be placed in `pretrained_models/model_name`:
 
 | Model  | Link |
 | ------------- | ------------- |
-| SimCLR (1x)  | [link](https://www.google.com/)  |
-| SimCLR (2x) | [link](https://www.google.com/)  |
-| SimSiam | [link](https://www.google.com/)  |
-| Barlow Twins  | [link](https://www.google.com/)  |
+| SimCLR (1x)  | [link](https://drive.google.com/file/d/1UHePxqfxZZUICndKFPCE4Zuz81qe8ml1/view?usp=share_link)  |
+| SimCLR (2x) | [link](https://drive.google.com/file/d/1XP0fTLWNPVz_vV2PcajnAGSyhHNHCMlc/view?usp=share_link)  |
+| SimSiam | [link](https://drive.google.com/file/d/1fscbMo99XdCQjRnpS1wWvpAWB1r_va4z/view?usp=share_link)  |
+| Barlow Twins  | [link](https://drive.google.com/file/d/1bukHh3jCycNHfLDhRvXoqxGG0-X1dREw/view?usp=share_link)  |
 
 
 
