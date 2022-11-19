@@ -6,3 +6,4 @@ numpy
 Pillow
 os
 scipy
+scikit-learn
