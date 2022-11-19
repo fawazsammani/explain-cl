@@ -3,7 +3,7 @@ Code for CVPR 2023 Submission, Methods for Explaining Contrastive Learning
 
 Google Colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://www.google.com/)
 
-Gradio web-demo [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://www.google.com/)
+Gradio web-demo [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/CVPRAnnon/xai-cl)
 
 ### Running Locally
 
