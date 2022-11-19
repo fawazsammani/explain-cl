@@ -5,9 +5,9 @@ Google Colab [![Open In Colab](https://colab.research.google.com/assets/colab-ba
 
 Gradio web-demo [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://www.google.com/)
 
-Please see `xai.ipynb`
+### Running Locally
 
-Pretrained Models can be downloaded from the links below, and should be placed in `pretrained_models/model_name`:
+Please clone this repo. Pretrained Models can be downloaded from the links below, and should be placed in `pretrained_models/model_name`
 
 | Model  | Link |
 | ------------- | ------------- |
@@ -16,7 +16,4 @@ Pretrained Models can be downloaded from the links below, and should be placed i
 | SimSiam | [link](https://drive.google.com/file/d/1fscbMo99XdCQjRnpS1wWvpAWB1r_va4z/view?usp=share_link)  |
 | Barlow Twins  | [link](https://drive.google.com/file/d/1bukHh3jCycNHfLDhRvXoqxGG0-X1dREw/view?usp=share_link)  |
 
-
-
-
-
+To run the methods, please use `xai.ipynb`
