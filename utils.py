@@ -49,7 +49,7 @@ def overlay_heatmap(img, heatmap, denormalize = False):
 
 def viz_map(img_path, heatmap):
     "For pixel invariance"
-    img = np.array(Image.open(img_path).resize((224,224)))
+    img = np.array(Image.open(img_path).resize((224,224))) if isinstance(img_path, str) else np.array(img_path.resize((224,224)))
     width, height, _ = img.shape
     cam = heatmap.detach().cpu().numpy()
     cam = cam / cam.max()
