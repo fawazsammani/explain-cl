@@ -262,7 +262,7 @@ def get_difference(ssl_model, baseline, image, lr, l2_weight, alpha_weight, alph
 
 def create_mixed_images(transform_type, ig_transforms, step, img_path, add_noise):
 
-    img = Image.open(img_path).convert('RGB')
+    img = Image.open(img_path).convert('RGB') if isinstance(img_path, str) else img_path
     img1 = ig_transforms['pure'](img).unsqueeze(0).to(device)
     img2 = ig_transforms[transform_type](img).unsqueeze(0).to(device)
 
