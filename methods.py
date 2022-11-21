@@ -402,7 +402,7 @@ def smooth_grad(guided, ssl_model, img1, img2, blur_output, steps = 50):
 def get_sample_dataset(img_path, num_augments, batch_size, no_shift_transforms, ssl_model, n_components):
     
     measure = nn.CosineSimilarity(dim=-1)
-    img = Image.open(img_path).convert('RGB')
+    img = Image.open(img_path).convert('RGB') if isinstance(img_path, str) else img_path
     no_shift_aug = transforms.Compose([no_shift_transforms['aug'], 
                                        transforms.RandomErasing(p=0.5, scale=(0.02, 0.33), ratio=(0.3, 3.3))]) 
 
