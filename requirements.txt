@@ -1,9 +1,0 @@
-torch
-torchvision
-gradio
-opencv-python-headless
-numpy
-Pillow
-os
-scipy
-scikit-learn
