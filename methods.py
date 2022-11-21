@@ -199,67 +199,6 @@ def pairwise_occlusion(img1, img2, model, batch_size, erase_scale, erase_ratio, 
 
     return A1, A2
 
-def tv_reg(img, l1 = True):
-    
-    diff_i = (img[:, :, :, 1:] - img[:, :, :, :-1])
-    diff_j = (img[:, :, 1:, :] - img[:, :, :-1, :])
-    
-    if l1:
-        return diff_i.abs().sum() + diff_j.abs().sum()
-    else:
-        return diff_i.pow(2).sum() + diff_j.pow(2).sum()
-
-
-def synthesize(ssl_model, model_type, img1, img_cls_layer, lr, l2_weight, alpha_weight, alpha_power, tv_weight, init_scale, network):
-    
-    if model_type == 'imagenet':
-        reduce_lr = False  
-        model = torchvision.models.resnet50(pretrained=True)
-        model = list(model.children())[:img_cls_layer]    
-        model = nn.Sequential(*model).to(device)
-        model.eval()
-    else:
-        reduce_lr = True
-        shift_layer = 3 if network == 'simclrv2' else 0
-        equivalent_layer = img_cls_layer - shift_layer  
-        model = list(ssl_model.encoder.net.children())[:equivalent_layer]
-        model = nn.Sequential(*model).to(device)
-        model.eval()
-
-    opt_img = (init_scale * torch.randn(1, 3, 224, 224)).to(device).requires_grad_()
-    target_feats = model(img1).detach()
-    optimizer = torch.optim.SGD([opt_img], lr=lr, momentum=0.9)
-
-    for i in range(201):
-        opt_img.data = opt_img.data.clip(0,1)
-        optimizer.zero_grad()
-        output = model(opt_img)
-        l2_loss = l2_weight * ((output - target_feats) ** 2).sum() / (target_feats ** 2).sum()
-        reg_alpha = alpha_weight * (opt_img ** alpha_power).sum()
-        reg_total_variation = tv_weight * tv_reg(opt_img, l1 = False)
-        loss = l2_loss + reg_alpha + reg_total_variation
-        loss.backward()
-        optimizer.step()
-
-        if reduce_lr and i % 40 == 0:
-            for param_group in optimizer.param_groups:
-                param_group['lr'] *= 1/10
-                
-    return opt_img
-
-def get_difference(ssl_model, baseline, image, lr, l2_weight, alpha_weight, alpha_power, tv_weight, init_scale, network):
-
-    imagenet_images = []
-    ssl_images = []
-
-    for lay in range(4,7):
-        image_net_image = synthesize(ssl_model, baseline, image, lay, lr, l2_weight, alpha_weight, alpha_power, tv_weight, init_scale, network).detach().clone()
-        ssl_image = synthesize(ssl_model, 'ssl', image, lay, lr, l2_weight, alpha_weight, alpha_power, tv_weight, init_scale, network).detach().clone()
-        imagenet_images.append(image_net_image)
-        ssl_images.append(ssl_image)
-        
-    return imagenet_images, ssl_images
-
 def create_mixed_images(transform_type, ig_transforms, step, img_path, add_noise):
 
     img = Image.open(img_path).convert('RGB') if isinstance(img_path, str) else img_path
