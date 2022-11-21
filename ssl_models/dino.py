@@ -3,9 +3,6 @@ import torch.nn as nn
 import torchvision
 import torch.nn.functional as F
 import numpy as np
-import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 """ from https://github.com/facebookresearch/dino"""
