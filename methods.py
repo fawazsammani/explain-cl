@@ -160,6 +160,8 @@ def averaged_transforms(guided, ssl_model, mixed_images, blur_output):
     grads2 = []
 
     for xbar_image in mixed_images[1:]:  
+        
+        ssl_model.zero_grad()
         input_image1 = mixed_images[0].clone().requires_grad_()
         input_image2 = xbar_image.clone().requires_grad_()
 
