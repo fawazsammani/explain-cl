@@ -242,6 +242,8 @@ def smooth_grad(guided, ssl_model, img1, img2, blur_output, steps = 50):
     grads2 = []
 
     for n1, n2 in zip(noise_images1, noise_images2):  
+        
+        ssl_model.zero_grad()
         input_image1 = n1.clone().requires_grad_()
         input_image2 = n2.clone().requires_grad_()
 
