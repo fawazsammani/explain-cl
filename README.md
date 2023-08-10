@@ -1,5 +1,5 @@
-# Methods for Explaining Contrastive Learning
-Code for CVPR 2023 Submission, Methods for Explaining Contrastive Learning
+# Visualizing and Understanding Contrastive Learning
+Code for TIP Submission, Visualizing and Understanding Contrastive Learning
 
 ### Running from Goolge Colab or Using the Web Interface Demo
 Google Colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Z9Zax5hTxgp1FtwOOwOiJ6ShEFW5zf4A?usp=share_link)
