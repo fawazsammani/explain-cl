@@ -1,7 +1,5 @@
 # Visualizing and Understanding Contrastive Learning
-Visualizing and Understanding Contrastive Learning, TIP 2023
-<br>
-[arXiv](https://arxiv.org/abs/2206.09753)
+Visualizing and Understanding Contrastive Learning, TIP 2023, [arXiv](https://arxiv.org/abs/2206.09753)
 
 ### Running from Goolge Colab or Using the Web Interface Demo
 Google Colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Z9Zax5hTxgp1FtwOOwOiJ6ShEFW5zf4A?usp=share_link)
